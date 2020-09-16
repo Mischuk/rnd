@@ -1,5 +1,5 @@
 export default class PlaceholderService {
-  API_URL = "../nations.json";
+  API_URL = "./nations.json";
   async getData() {
     const res = await fetch(`${this.API_URL}`);
 

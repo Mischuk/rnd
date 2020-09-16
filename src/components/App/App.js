@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { Route, Switch } from "react-router-dom";
 import HomePage from "../../pages/HomePage";
 import { fetchData } from "../../store/actions/user";
 import "./App.scss";
@@ -11,12 +10,8 @@ function App({ user, getData }) {
   }, [getData]);
 
   return (
-    <div className="app">
-      <Switch>
-        <Route exact path="/">
-          <HomePage data={user} />
-        </Route>
-      </Switch>
+    <div className="app s">
+      <HomePage data={user} />
     </div>
   );
 }
