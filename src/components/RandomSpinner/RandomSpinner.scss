@@ -1,0 +1,13 @@
+@import "../../styles/shared";
+
+.random-spinner {
+  @include mq("md") {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__image {
+    width: 75px;
+    height: 75px;
+  }
+}
