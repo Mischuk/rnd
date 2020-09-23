@@ -10,7 +10,7 @@ function App({ user, getData }) {
   }, [getData]);
 
   return (
-    <div className="app s">
+    <div className="app">
       <HomePage data={user} />
     </div>
   );

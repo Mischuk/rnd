@@ -11,6 +11,7 @@ function HomePage(props) {
   const [modalPlayer, setModalPlayer] = useState();
   const [modalOpen, setModalOpen] = useState(false);
   const intervalTime = 400;
+  const placerTypes = ["Fractal", "Pangaea", "Continents", "Earth", "Donut", "Oval", "Terra"];
 
   const randomInit = (min, max, exclude = null) => {
     if (!exclude && exclude !== 0) {
@@ -54,6 +55,16 @@ function HomePage(props) {
     const item = data.nations.find(nation => id === nation.id);
     setModalPlayer(item);
     setModalOpen(true);
+  };
+
+  const renderPlace = () => {
+    let randomIndex = randomInit(0, placerTypes.length - 1);
+
+    return (
+      <div className="nation nation--clear">
+        <div className="nation__title">Map: {placerTypes[randomIndex]}</div>
+      </div>
+    );
   };
 
   const renderNation = (player, size = null) => {
@@ -125,6 +136,7 @@ function HomePage(props) {
       )}
       {!isLoading && randomed && (
         <div className="randomed">
+          <div className="randomed__column randomed__column--top">{!randomAnimation && renderPlace()}</div>
           <div className="randomed__column">{!randomAnimation && renderNation(firstPlayer, null)}</div>
           <div className="randomed__column randomed__column--small">
             {!randomAnimation && (
@@ -134,7 +146,9 @@ function HomePage(props) {
             )}
             {randomAnimation && <RandomSpinner data={data.nations} />}
           </div>
-          <div className="randomed__column">{!randomAnimation && renderNation(secondPlayer, null)}</div>
+          <div className="randomed__column randomed__column--bottom">
+            {!randomAnimation && renderNation(secondPlayer, null)}
+          </div>
         </div>
       )}
       {modalOpen && (
