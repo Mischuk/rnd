@@ -47,7 +47,7 @@ body {
     }
 
     &-button {
-      width: 200px;
+      width: 100%;
       padding: 15px 30px;
       border: 2px solid #c3a97a;
       border-radius: 10px;
@@ -57,10 +57,6 @@ body {
       outline: none;
       box-shadow: 1px 2px 8px rgba(0, 0, 0, 0.5), inset 1px 2px 2px rgba(0, 0, 0, 0.25);
       user-select: none;
-
-      @include mq("md") {
-        width: 100%;
-      }
 
       &:hover {
         box-shadow: 1px 2px 18px rgba(0, 0, 0, 0.5), inset 1px 2px 2px rgba(0, 0, 0, 0.25);
@@ -77,23 +73,18 @@ body {
 
 .randomed {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
 
-  @include mq("md") {
-    flex-direction: column;
-  }
-
   &__column {
-    flex: 1;
+    flex: 0;
+    width: 100%;
     max-height: 90%;
-
-    @include mq("md") {
-      flex: 0;
-      width: 100%;
-    }
+    margin-top: 15px;
+    margin-bottom: 15px;
 
     &--bottom {
       margin-bottom: auto;
@@ -104,13 +95,9 @@ body {
     }
 
     &--small {
-      max-width: 200px;
-
-      @include mq("md") {
-        max-width: 75%;
-        margin-top: $gap * 2;
-        margin-bottom: $gap * 2;
-      }
+      max-width: 75%;
+      margin-top: auto;
+      margin-bottom: $gap * 2;
     }
   }
 }
@@ -130,14 +117,11 @@ body {
   &__title {
     display: flex;
     align-items: center;
+    justify-content: center;
     padding-right: 15px;
     padding-left: 15px;
     font-weight: 700;
     font-size: 18px;
-
-    @include mq("md") {
-      justify-content: center;
-    }
 
     &--small {
       flex-wrap: wrap;
@@ -156,16 +140,13 @@ body {
 
   &__unique {
     position: relative;
+    display: none;
     padding: 15px 30px;
     border-top: 1px solid #c3a97a;
     border-bottom: 1px solid #c3a97a;
     font-weight: 400;
     font-size: 14px;
     line-height: 1.2;
-
-    @include mq("md") {
-      display: none;
-    }
 
     &:last-child {
       border-bottom: none;
@@ -190,40 +171,32 @@ body {
   }
 
   &--small {
-    @include mq("md") {
-      width: 100%;
-      max-height: 100%;
-      margin-top: auto;
-      margin-bottom: auto;
-      padding-top: 40px;
-      padding-right: 15px;
-      padding-bottom: 80px;
-      padding-left: 15px;
-      border: none;
-      box-shadow: none;
-      overflow: auto;
-    }
+    width: 100%;
+    max-height: 100%;
+    margin-top: auto;
+    margin-bottom: auto;
+    padding-top: 40px;
+    padding-right: 15px;
+    padding-bottom: 80px;
+    padding-left: 15px;
+    border: none;
+    box-shadow: none;
+    overflow: auto;
 
     #{$this}__unique {
       display: flex;
       flex-direction: column;
-      @include mq("md") {
-        padding-right: 0;
-        padding-left: 0;
-      }
+      padding-right: 0;
+      padding-left: 0;
     }
 
     #{$this}__sub-title {
-      @include mq("md") {
-        margin-top: 15px;
-        padding-left: 0;
-      }
+      margin-top: 15px;
+      padding-left: 0;
     }
 
     #{$this}__title {
-      @include mq("md") {
-        justify-content: start;
-      }
+      justify-content: start;
     }
   }
 }
